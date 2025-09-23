@@ -1,11 +1,10 @@
 package gay.`object`.hexxyinthealps
 
+import gay.`object`.hexxyinthealps.config.HexxyInTheAlpsConfig
+import gay.`object`.hexxyinthealps.networking.HexxyInTheAlpsNetworking
 import net.minecraft.resources.ResourceLocation
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
-import gay.`object`.hexxyinthealps.config.HexxyInTheAlpsConfig
-import gay.`object`.hexxyinthealps.networking.HexxyInTheAlpsNetworking
-import gay.`object`.hexxyinthealps.registry.HexxyInTheAlpsActions
 
 object HexxyInTheAlps {
     const val MODID = "hexxyinthealps"
@@ -18,9 +17,7 @@ object HexxyInTheAlps {
 
     fun init() {
         HexxyInTheAlpsConfig.init()
-        initRegistries(
-            HexxyInTheAlpsActions,
-        )
+        initRegistries()
         HexxyInTheAlpsNetworking.init()
     }
 }

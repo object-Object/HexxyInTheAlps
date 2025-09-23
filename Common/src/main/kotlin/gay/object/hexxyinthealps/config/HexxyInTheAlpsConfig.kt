@@ -2,19 +2,18 @@ package gay.`object`.hexxyinthealps.config
 
 import dev.architectury.event.events.client.ClientPlayerEvent
 import dev.architectury.event.events.common.PlayerEvent
+import gay.`object`.hexxyinthealps.HexxyInTheAlps
+import gay.`object`.hexxyinthealps.networking.msg.MsgSyncConfigS2C
 import me.shedaniel.autoconfig.AutoConfig
 import me.shedaniel.autoconfig.ConfigData
 import me.shedaniel.autoconfig.ConfigHolder
 import me.shedaniel.autoconfig.annotation.Config
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Category
-import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.Tooltip
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.TransitiveObject
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer.GlobalData
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer
 import net.minecraft.network.FriendlyByteBuf
-import gay.`object`.hexxyinthealps.HexxyInTheAlps
-import gay.`object`.hexxyinthealps.networking.msg.MsgSyncConfigS2C
 
 object HexxyInTheAlpsConfig {
     @JvmStatic
@@ -62,25 +61,14 @@ object HexxyInTheAlpsConfig {
     }
 
     @Config(name = "client")
-    class ClientConfig : ConfigData {
-        @Tooltip
-        val clientConfigOption: Boolean = true
-    }
+    class ClientConfig : ConfigData
 
     @Config(name = "server")
     class ServerConfig : ConfigData {
-        @Tooltip
-        var serverConfigOption: Int = 64
-            private set
-
-        fun encode(buf: FriendlyByteBuf) {
-            buf.writeInt(serverConfigOption)
-        }
+        fun encode(buf: FriendlyByteBuf) {}
 
         companion object {
-            fun decode(buf: FriendlyByteBuf) = ServerConfig().apply {
-                serverConfigOption = buf.readInt()
-            }
+            fun decode(buf: FriendlyByteBuf) = ServerConfig().apply {}
         }
     }
 }
