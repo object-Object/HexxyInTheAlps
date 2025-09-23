@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "hexxyinthealps",
+  "version": "${version}",
+  "name": "Hexxy Searches For A Lost Cat In The Alps",
+  "description": "A per-player server-side profiler and lag detector for Hex Casting.",
+  "authors": [
+    "object-Object"
+  ],
+  "contact": {
+    "homepage": "https://hexxyinthealps.hexxy.media",
+    "sources": "https://github.com/object-Object/HexxyInTheAlps"
+  },
+  "license": "MIT",
+  "icon": "assets/hexxyinthealps/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [{
+      "adapter": "kotlin",
+      "value": "gay.object.hexxyinthealps.fabric.FabricHexxyInTheAlps"
+    }],
+    "client": [{
+      "adapter": "kotlin",
+      "value": "gay.object.hexxyinthealps.fabric.FabricHexxyInTheAlpsClient"
+    }],
+    "fabric-datagen": [{
+      "adapter": "kotlin",
+      "value": "gay.object.hexxyinthealps.fabric.datagen.FabricHexxyInTheAlpsDatagen"
+    }],
+    "modmenu": [{
+      "adapter": "kotlin",
+      "value": "gay.object.hexxyinthealps.fabric.FabricHexxyInTheAlpsModMenu"
+    }]
+  },
+  "mixins": [
+    "hexxyinthealps-common.mixins.json",
+    "hexxyinthealps-fabric.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "${versions.minecraft}",
+    "fabricloader": ">=${versions.fabric_loader}",
+    "fabric-api": ">=${versions.fabric_api}",
+    "fabric-language-kotlin": ">=${versions.kotlin_fabric}",
+    "architectury": ">=${versions.architectury}",
+    "hexcasting": ">=${versions.hexcasting_dependency}",
+    "cloth-config": ">=${versions.clothConfig}"
+  },
+  "suggests": {
+    "modmenu": ">=${versions.modMenu}"
+  }
+}
