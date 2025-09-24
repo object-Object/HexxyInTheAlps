@@ -7,10 +7,9 @@
   ],
   "mixins": [
     "MixinCastingVM",
-    "MixinDatagenMain"
+    "MixinDatagenMain",
+    "MixinIota",
+    "interop.complexhex.MixinBubbleIota"
   ],
-  "plugin": "gay.object.hexxyinthealps.mixin.HexxyInTheAlpsMixinConfigPlugin",
-  "injectors": {
-    "defaultRequire": 1
-  }
+  "plugin": "gay.object.hexxyinthealps.mixin.HexxyInTheAlpsMixinConfigPlugin"
 }

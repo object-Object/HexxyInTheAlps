@@ -6,7 +6,7 @@
 java = "17" # must be an integer
 
 kotlin = "1.9.22"
-kotlin-fabric = "1.10.18+kotlin.1.9.22"
+kotlin-fabric = "1.10.20+kotlin.1.9.24"
 kotlin-forge = "4.10.0"
 
 # Minecraft
@@ -18,8 +18,8 @@ architectury = "9.2.14"
 architectury-plugin = { require="[3.4, 3.5[" }
 architectury-loom = { require="[1.7, 1.8[" }
 
-fabric-loader = "0.14.25"
-fabric-api = "0.87.0+1.20.1"
+fabric-loader = "0.15.11"
+fabric-api = "0.92.1+1.20.1"
 
 forge = "1.20.1-47.2.0"
 forge-dependency = "47" # for mods.toml
@@ -47,6 +47,8 @@ modMenu = "7.1.0"
 inline = "1.20.1-1.0.1"
 
 caelus = "3.1.0+1.20"
+
+complexHex = "0.1.6-beta"
 
 # other dependencies
 
@@ -102,6 +104,8 @@ clothConfig-forge  = { module="me.shedaniel.cloth:cloth-config-forge", version.r
 
 caelus = { module="top.theillusivec4.caelus:caelus-forge", version.ref="caelus" }
 
+complexHex-fabric = { module="libs:complexhex-fabric-1.20.1", version.ref="complexHex" }
+
 inline-fabric = { module="com.samsthenerd.inline:inline-fabric", version.ref="inline" }
 inline-forge  = { module="com.samsthenerd.inline:inline-forge", version.ref="inline" }
 
@@ -110,7 +114,6 @@ asm-analysis = { module="org.ow2.asm:asm-analysis", version.ref="asm" }
 asm-commons  = { module="org.ow2.asm:asm-commons", version.ref="asm" }
 asm-tree     = { module="org.ow2.asm:asm-tree", version.ref="asm" }
 asm-util     = { module="org.ow2.asm:asm-util", version.ref="asm" }
-
 
 serializationHooks = { module="libs:serialization-hooks", version.ref="serializationHooks" }
 
