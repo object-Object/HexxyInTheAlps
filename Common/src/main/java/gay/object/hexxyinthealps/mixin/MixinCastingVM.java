@@ -38,10 +38,17 @@ public abstract class MixinCastingVM {
             HexxyInTheAlps.LOGGER.error("Uncaught exception in CastingVM.queueExecuteAndWrapIotas", e);
             result = new ExecutionClientView(false, ResolvedPatternType.ERRORED, new ArrayList<>(), null);
         } catch (Throwable e) {
+            // surely this won't go poorly
+            if (e.getMessage().equals("Watchdog")) {
+                HexxyInTheAlps.logWatchdogCrash((CastingVM)(Object)this, world, stopwatch.stop());
+                throw e;
+            }
+
             // the compiler won't let us specifically catch Mishap, so catch everything and rethrow non-Mishaps
             // anything that isn't Exception or Mishap is likely an Error, so we shouldn't try to prevent it from crashing the server
             //noinspection ConstantValue
             if (!(e instanceof Mishap)) throw e;
+
             HexxyInTheAlps.LOGGER.error("Uncaught mishap in CastingVM.queueExecuteAndWrapIotas", e);
             result = new ExecutionClientView(false, ResolvedPatternType.ERRORED, new ArrayList<>(), null);
         }

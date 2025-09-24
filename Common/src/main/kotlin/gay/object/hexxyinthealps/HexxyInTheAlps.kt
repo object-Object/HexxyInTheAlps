@@ -43,30 +43,8 @@ object HexxyInTheAlps {
         // TODO: record historical data
         if (stopwatch.elapsed(TimeUnit.MILLISECONDS) >= HexxyInTheAlpsServerConfig.config.longCastThresholdMillis) {
             val message = buildString {
-                // general info
-                appendLine(
-                    """
-                    A single cast took $stopwatch to execute!
-                        Dimension: ${world.dimension().location()}
-                        Position: ${vm.env.mishapSprayPos()}
-                        Ops consumed: ${vm.image.opsConsumed}
-                        Environment: ${vm.env::class.qualifiedName ?: vm.env::class.jvmName}
-                    """.trimIndent()
-                )
-
-                // caster info
-                append("    ")
-                appendLine(
-                    vm.env.castingEntity?.let {
-                        """
-                        Caster:
-                                Type: ${it.type.description.string}
-                                Name: ${it.name.string}
-                                Position: ${it.position()}
-                                UUID: ${it.uuid}
-                        """.trimIndent()
-                    } ?: "Caster: null"
-                )
+                appendLine("A single cast took $stopwatch to execute!")
+                appendBasicCastDump(vm, world)
 
                 // iotas cast
                 append("    Hex: [")
@@ -84,5 +62,41 @@ object HexxyInTheAlps {
             }.trim()
             LOGGER.warn(message)
         }
+    }
+
+    @JvmStatic
+    fun logWatchdogCrash(vm: CastingVM, world: ServerLevel, stopwatch: Stopwatch) {
+        val message = buildString {
+            appendLine("Watchdog crash occurred during a single cast that took $stopwatch to execute!")
+            appendBasicCastDump(vm, world)
+        }.trim()
+        LOGGER.error(message)
+    }
+
+    private fun StringBuilder.appendBasicCastDump(vm: CastingVM, world: ServerLevel) {
+        // general info
+        append("    ")
+        appendLine(
+            """
+            Dimension: ${world.dimension().location()}
+                Position: ${vm.env.mishapSprayPos()}
+                Ops consumed: ${vm.image.opsConsumed}
+                Environment: ${vm.env::class.qualifiedName ?: vm.env::class.jvmName}
+            """.trimIndent()
+        )
+
+        // caster info
+        append("    ")
+        appendLine(
+            vm.env.castingEntity?.let {
+                """
+                Caster:
+                        Type: ${it.type.description.string}
+                        Name: ${it.name.string}
+                        Position: ${it.position()}
+                        UUID: ${it.uuid}
+                """.trimIndent()
+            } ?: "Caster: null"
+        )
     }
 }
