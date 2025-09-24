@@ -1,1 +1,18 @@
-{}
+{
+  text: {
+    "autoconfig.hexxyinthealps": {
+      title: "Hexxy Searches For A Lost Cat In The Alps Config",
+
+      category: {
+        client: "Client",
+        server: "Server",
+      },
+
+      option: {
+        client: {},
+
+        server: {},
+      },
+    },
+  },
+}

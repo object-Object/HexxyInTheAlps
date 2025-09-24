@@ -13,6 +13,7 @@ class ForgeHexxyInTheAlps {
             EventBuses.registerModEventBus(HexxyInTheAlps.MODID, this)
             addListener(ForgeHexxyInTheAlpsClient::init)
             addListener(ForgeHexxyInTheAlpsDatagen::init)
+            addListener(ForgeHexxyInTheAlpsServer::init)
         }
         HexxyInTheAlps.init()
     }

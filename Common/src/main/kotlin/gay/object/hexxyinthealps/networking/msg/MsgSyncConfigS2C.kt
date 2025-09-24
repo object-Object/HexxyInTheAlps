@@ -1,14 +1,14 @@
 package gay.`object`.hexxyinthealps.networking.msg
 
-import gay.`object`.hexxyinthealps.config.HexxyInTheAlpsConfig
+import gay.`object`.hexxyinthealps.config.HexxyInTheAlpsServerConfig
 import net.minecraft.network.FriendlyByteBuf
 
-data class MsgSyncConfigS2C(val serverConfig: HexxyInTheAlpsConfig.ServerConfig) : HexxyInTheAlpsMessageS2C {
+data class MsgSyncConfigS2C(val serverConfig: HexxyInTheAlpsServerConfig.ServerConfig) : HexxyInTheAlpsMessageS2C {
     companion object : HexxyInTheAlpsMessageCompanion<MsgSyncConfigS2C> {
         override val type = MsgSyncConfigS2C::class.java
 
         override fun decode(buf: FriendlyByteBuf) = MsgSyncConfigS2C(
-            serverConfig = HexxyInTheAlpsConfig.ServerConfig.decode(buf),
+            serverConfig = HexxyInTheAlpsServerConfig.ServerConfig().decode(buf),
         )
 
         override fun MsgSyncConfigS2C.encode(buf: FriendlyByteBuf) {

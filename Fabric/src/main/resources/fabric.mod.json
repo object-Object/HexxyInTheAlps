@@ -3,7 +3,7 @@
   "id": "hexxyinthealps",
   "version": "${version}",
   "name": "Hexxy Searches For A Lost Cat In The Alps",
-  "description": "A per-player server-side profiler and lag detector for Hex Casting.",
+  "description": "A server-side per-player hex profiler and lag detector for Hex Casting.",
   "authors": [
     "object-Object"
   ],
@@ -22,6 +22,10 @@
     "client": [{
       "adapter": "kotlin",
       "value": "gay.object.hexxyinthealps.fabric.FabricHexxyInTheAlpsClient"
+    }],
+    "server": [{
+      "adapter": "kotlin",
+      "value": "gay.object.hexxyinthealps.fabric.FabricHexxyInTheAlpsServer"
     }],
     "fabric-datagen": [{
       "adapter": "kotlin",

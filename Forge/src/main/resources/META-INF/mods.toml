@@ -8,7 +8,7 @@ version = "${version}"
 displayName = "Hexxy Searches For A Lost Cat In The Alps"
 logoFile = "assets/hexxyinthealps/icon.png"
 authors = "object-Object"
-description = "A per-player server-side profiler and lag detector for Hex Casting."
+description = "A server-side per-player hex profiler and lag detector for Hex Casting."
 
 [[dependencies.hexxyinthealps]]
 modId = "forge"

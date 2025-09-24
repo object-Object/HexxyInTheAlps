@@ -1,16 +1,16 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
 # https://copier.readthedocs.io/en/stable/updating/#never-change-the-answers-file-manually
-_commit: v2.1.1
+_commit: v2.2.0
 _src_path: gh:FallingColors/hexdummy
 advanced: true
 capitalize_platforms: true
 classname: HexxyInTheAlps
 default_branch: main
-description: A per-player server-side profiler and lag detector for Hex Casting.
+description: A server-side per-player hex profiler and lag detector for Hex Casting.
 display_name: Hexxy Searches For A Lost Cat In The Alps
 github_repo: HexxyInTheAlps
 github_user: object-Object
-homepage_url: https://hexxyinthealps.hexxy.media
+homepage_url: https://github.com/object-Object/HexxyInTheAlps
 java_package: gay.object.hexxyinthealps
 kotlin_package: gay.`object`.hexxyinthealps
 mappings_name: Mojmap

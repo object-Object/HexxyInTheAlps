@@ -1,5 +1,6 @@
 plugins {
     id("hexxyinthealps.java")
+    id("hexxyinthealps.mod-publish")
 }
 
 architectury {
@@ -12,5 +13,17 @@ tasks {
         dependsOn(":Fabric:runDatagen")
         dependsOn(":Forge:runCommonDatagen")
         dependsOn(":Forge:runForgeDatagen")
+    }
+}
+
+publishMods {
+    displayName = "v${project.version}"
+
+    github {
+        repository = System.getenv("GITHUB_REPOSITORY") ?: ""
+        commitish = System.getenv("GITHUB_SHA") ?: ""
+
+        // https://modmuss50.github.io/mod-publish-plugin/platforms/github/#parent-releases
+        allowEmptyFiles = true
     }
 }

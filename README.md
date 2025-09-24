@@ -1,3 +1,3 @@
 # Hexxy Searches For A Lost Cat In The Alps
 
-A per-player server-side profiler and lag detector for Hex Casting.
+A server-side per-player hex profiler and lag detector for Hex Casting.
