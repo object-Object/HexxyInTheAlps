@@ -8,6 +8,7 @@ import me.shedaniel.autoconfig.ConfigData
 import me.shedaniel.autoconfig.ConfigHolder
 import me.shedaniel.autoconfig.annotation.Config
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Category
+import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.Tooltip
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.TransitiveObject
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer.GlobalData
@@ -54,9 +55,16 @@ object HexxyInTheAlpsServerConfig {
 
     @Config(name = "server")
     class ServerConfig : ConfigData {
-        fun encode(buf: FriendlyByteBuf) {}
+        @Tooltip
+        var longCastThresholdMillis: Long = 250
+            private set
+
+        fun encode(buf: FriendlyByteBuf) {
+            buf.writeLong(longCastThresholdMillis)
+        }
 
         fun decode(buf: FriendlyByteBuf): ServerConfig {
+            longCastThresholdMillis = buf.readLong()
             return this
         }
     }

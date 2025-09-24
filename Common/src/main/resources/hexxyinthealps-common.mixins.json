@@ -6,6 +6,7 @@
   "client": [
   ],
   "mixins": [
+    "MixinCastingVM",
     "MixinDatagenMain"
   ],
   "plugin": "gay.object.hexxyinthealps.mixin.HexxyInTheAlpsMixinConfigPlugin",

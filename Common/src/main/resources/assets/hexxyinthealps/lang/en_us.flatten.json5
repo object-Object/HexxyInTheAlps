@@ -11,7 +11,12 @@
       option: {
         client: {},
 
-        server: {},
+        server: {
+          longCastThresholdMillis: {
+            "": "Long Cast Threshold (ms)",
+            "@Tooltip": "Log a warning if any single cast takes longer than this value (in milliseconds) to finish executing.",
+          },
+        },
       },
     },
   },
