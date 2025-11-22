@@ -4,6 +4,7 @@ import at.petrak.hexcasting.api.casting.eval.ExecutionClientView;
 import at.petrak.hexcasting.api.casting.eval.ResolvedPatternType;
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage;
 import at.petrak.hexcasting.api.casting.eval.vm.CastingVM;
+import at.petrak.hexcasting.api.casting.eval.vm.SpellContinuation;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.mishaps.Mishap;
 import com.google.common.base.Stopwatch;
@@ -27,13 +28,14 @@ public abstract class MixinCastingVM {
     private ExecutionClientView hexxyinthealps$measureExecutionTime_notTheCauseOfTickLag(
         List<? extends Iota> iotas,
         ServerLevel world,
+        SpellContinuation nextContinuation,
         Operation<ExecutionClientView> original
     ) {
         var initialImage = callGetImage();
         var stopwatch = Stopwatch.createStarted();
         ExecutionClientView result;
         try {
-            result = original.call(iotas, world);
+            result = original.call(iotas, world, nextContinuation);
         } catch (Exception e) {
             HexxyInTheAlps.LOGGER.error("Uncaught exception in CastingVM.queueExecuteAndWrapIotas", e);
             result = new ExecutionClientView(false, ResolvedPatternType.ERRORED, new ArrayList<>(), null);
